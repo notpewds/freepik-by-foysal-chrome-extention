@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Just Foysal Thing's",
+  "description": "Free Pic image downloader by Foysal Thing",
+  "version": "1.0",
+  "host_permissions": [
+    "https://free-pik.vercel.app/*"
+  ],
+  "action": {
+    "default_icon": "assets/logo.PNG",
+    "default_popup": "popup.html"
+  },
+  "content_security_policy": {
+    "extension_pages": "default-src 'self'; img-src https://*; connect-src 'self' https://free-pik.vercel.app"
+  },
+  "omnibox": {
+    "keyword": "demo"
+  },
+  "icons": {
+    "16": "assets/sixteen.png"
+  },
+  "commands": {
+    "toggle-feature-foo": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y",
+        "mac": "Command+Shift+Y"
+      },
+      "description": "Toggle feature foo"
+    }
+  },
+  "devtools_page": "devtools.html",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "activeTab",
+    "tts",
+    "tabs"
+  ]
+}

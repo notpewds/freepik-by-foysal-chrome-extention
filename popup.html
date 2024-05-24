@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chrome Extension Demo</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <h2>Freepik By Foysal</h2>
+
+    <h4 id="here"></h4>
+    <button id="btn">Download</button>
+    <a href="https://freepik-by-foysal.vercel.app/">Get the latest version of the extension</a>
+
+    <div class="row">
+      <div class="col-md-9">
+        <!-- <img id="image-preview" class="img-fluid" style="display:none;" /> -->
+        <video id="video-preview" class="img-fluid mx-auto d-block" style="display:none;" autoplay muted loop></video>
+        <h3 id="title" class="my-4"></h3>
+      </div>
+      <div class="col-md-3" id="options-container"></div>
+    </div>
+    
+    <script src="./popup.js"></script>
+  </body>
+</html>
