@@ -1,9 +1,9 @@
-# Chrome Extension Demo
-A simple Chrome extension to demonstrate some lesser-known Chrome extension APIs.  
+# Freepik Image Donwlaoder by Foysal
+
 
 ## How to install
 
-1. Clone this repo `git clone https://github.com/pavinduLakshan/ChromeExtensionDemo.git`
+1. Clone this repo `git clone https://github.com/notpewds/freepik-by-foysal-chrome-extention`
 2. Open the Chrome browser and go to `chrome://extensions`.  
 
 A Chrome extension can also be used in Brave and Ms Edge. If you are using one of those, go to `brave://extensions` and `edge://extensions` respectively.
@@ -11,11 +11,3 @@ A Chrome extension can also be used in Brave and Ms Edge. If you are using one o
 3. Turn on the developer mode.
 4. Click on the `load unpacked` and select the cloned repository.
 
-## What extension APIs this extension demonstrates
-
-This extension demontrates the following Chrome extension APIs.   
-1. Chrome omnibox API
-2. Chrome commands API
-3. Chrome devtools API
-4. Chrome ttsEngine API
-5. Chrome permissions API
