@@ -1,13 +1,42 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   const btn = document.getElementById("btn");
-  const imagePreview = document.getElementById("image-preview");
-  const videoPreview = document.getElementById("video-preview");
+  // const imagePreview = document.getElementById("image-preview");
+  // const videoPreview = document.getElementById("video-preview");
   const titleElement = document.getElementById("title");
   const optionsContainer = document.getElementById("options-container");
 
-  chrome.tabs.query({ active: true, lastFocusedWindow: true }, tabs => {
+  chrome.tabs.query({ active: true, lastFocusedWindow: true }, (tabs) => {
     const url = tabs[0].url;
-    document.getElementById("here").innerText = url;
+    if (
+      url.includes("premium-photo") ||
+      url.includes("premium-ai-image") ||
+      url.includes("premium-video") ||
+      url.includes("free-video") ||
+   
+      url.includes("free-photo") 
+    ) {
+      // Supported URL
+      console.log("Supported URL");
+    } else {
+      // Not supported URL
+      document.getElementById("here2").innerText =
+        "This extension only works with premium freepik images and video.";
+      document.getElementById("btn").style.display = "none";
+      console.log("Not supported");
+    }
+    if (
+
+      url.includes("free-video") ||
+   
+      url.includes("free-photo") 
+    ) {
+      // document.getElementById("btn").style.display = "none";
+      document.getElementById("here").style.display = "none";
+      document.getElementById("here2").innerText =
+        "This image is available for free. Only premium images or videos will be accepted, and the option to download free videos and images will be removed soon.  ";
+    } 
+
+    // document.getElementById("here").innerText = url;
 
     btn.addEventListener("click", () => {
       const mediaType = determineMediaType(url);
@@ -58,44 +87,44 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function downloadImage(id) {
     fetch(`https://free-pik.vercel.app/get-data/${id}`)
-      .then(response => response.json())
-      .then(data => {
-        imagePreview.src = data.preview.url;
-        imagePreview.style.display = "block";
-        videoPreview.style.display = "none";
+      .then((response) => response.json())
+      .then((data) => {
+        // imagePreview.src = data.preview.url;
+        // imagePreview.style.display = "block";
+        // videoPreview.style.display = "none";
         titleElement.textContent = data.name;
         console.log(data.preview);
 
         return fetch(`https://free-pik.vercel.app/fetch-data/${id}`);
       })
-      .then(response => response.json())
-      .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         window.location.href = data.url;
       })
-      .catch(error => {
+      .catch((error) => {
         console.error(error);
       });
   }
 
   function downloadVideo(id) {
     fetch(`https://free-pik.vercel.app/get-video/${id}`)
-      .then(response => response.json())
-      .then(data => {
-        videoPreview.src = data.previews[0];
-        videoPreview.style.display = "block";
-        imagePreview.style.display = "none";
+      .then((response) => response.json())
+      .then((data) => {
+        // videoPreview.src = data.previews[0];
+        // videoPreview.style.display = "block";
+        // imagePreview.style.display = "none";
 
         titleElement.textContent = data.name;
         renderVideoOptions(data.options);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error(error);
       });
   }
 
   function renderVideoOptions(options) {
     optionsContainer.innerHTML = "";
-    options.forEach(option => {
+    options.forEach((option) => {
       const optionElement = document.createElement("div");
       optionElement.className = "card mb-3";
       optionElement.innerHTML = `
@@ -115,13 +144,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function downloadVideoFromId(id) {
     fetch(`https://free-pik.vercel.app/fetch-video/${id}`)
-      .then(response => response.json())
-      .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         if (data.url) {
           window.location.replace(data.url);
         }
       })
-      .catch(error => {
+      .catch((error) => {
         console.error(error);
       });
   }
