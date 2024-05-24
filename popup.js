@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Not supported URL
       document.getElementById("here2").innerText =
         "This extension only works with premium freepik images and video.";
-      document.getElementById("btn").style.display = "none";
+      // document.getElementById("btn").style.display = "none";
       console.log("Not supported");
     }
     if (
