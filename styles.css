@@ -24,12 +24,12 @@ a.premium.bold.underline {
 }
 .hide-premium {
   filter: blur(1px) !important;
-  cursor: not-allowed !important ;
+  /* cursor: not-allowed !important ; */
   pointer-events: NONE !important;
 }
 .hide-premium button {
   filter: blur(1px) !important;
-  cursor: not-allowed !important ;
+  /* cursor: not-allowed !important ; */
   pointer-events: NONE !important;
 }
 body.new-detail .detail.detail--modal aside.aside--in-flex {
