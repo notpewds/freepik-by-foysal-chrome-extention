@@ -216,7 +216,7 @@ const hideLoading = () => {
  .then(response => response.json())
  .then(data => {
      console.log('Version:', data.version);
-     currentVersion = "2.0.0"
+     currentVersion = "2.0.1"
      if(currentVersion != data.version){
        console.log(' Update need');
        const updateBtn = `
