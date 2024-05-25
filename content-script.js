@@ -147,13 +147,24 @@ function parseIdFromUrl(url, regex) {
 function downloadImage(id) {
   showLoading();
   fetch(`https://free-pik.vercel.app/fetch-data/${id}`)
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
     .then((data) => {
-      window.location.href = data.url;
-      hideLoading();
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        throw new Error('URL not found in the response');
+      }
     })
     .catch((error) => {
       console.error(error);
+      alert("Download limit exceeded for today. Please try again tomorrow.");
+    })
+    .finally(() => {
       hideLoading();
     });
 }
@@ -206,6 +217,7 @@ function downloadVideoFromId(id) {
       }
     })
     .catch((error) => {
+      alert("Download limit exceeded for today. Please try again tomorrow.")
       console.error(error);
       hideLoading();
     });
