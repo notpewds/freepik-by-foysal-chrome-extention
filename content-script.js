@@ -228,6 +228,12 @@ const hideLoading = () => {
        console.log( document.querySelector(".unique"))
      }else{
        console.log(' No Update need');
+       const updateBtn = `
+       <a target="_blank" style="font-size:15px !important;" href="https://join.skype.com/rgqRzMIWrlWI" class="premium bold underline">JOIN OUR SKYPE GROUP.</a>`
+       const newDiv = document.createElement('div');
+       newDiv.innerHTML = updateBtn;
+     
+       document.querySelector(".unique").appendChild(newDiv);;
      }
  })
  .catch(error => {
