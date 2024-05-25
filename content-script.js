@@ -4,6 +4,46 @@ function reexecuteLogic() {
   //   document.querySelectorAll(".hide-u").forEach((asideElement) => {
   //     asideElement.remove();
   //   });
+  setTimeout(() => {
+    if (window.location.href.includes("free-photo") || window.location.href.includes("free-video")) {
+      document.querySelectorAll(".down-button").forEach(button => {
+        button.innerHTML = `<span> Free image is not supported.</span> `;
+        button.disabled = true;
+        button.style.cursor = "not-allowed";
+      });
+    } else {
+      
+      document.querySelectorAll(".down-button").forEach(button => {
+        button.innerHTML = `<span class="block ff--title font-lg bold capitalize inline"> Download</span>  <span class="limit"> </span >`;
+        button.disabled = false;
+        button.style.cursor = "pointer";
+        console.log("Premium");
+        fetch("https://free-pik.vercel.app/limit")
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data.current, data.limit);
+    if(data.current > 90) {
+      console.log("Limit exceeded")
+      document.querySelectorAll(".down-button ").forEach(button =>{
+        button.innerHTML = "<span> Download limit exceeded for today. Please try again tomorrow.</span>"
+        button.disabled = true
+        button.style.curson = "not-allowed"
+
+      })
+    }
+    console.log(data.limit , "Limit exceeded")
+    document.querySelectorAll(".limit").forEach((item) => {
+
+      return item.textContent = `${data.current || 0}  / ${ data.limit || 100}  (Today's Limit)`;
+    })
+   
+  })
+  .catch((error) => {
+    console.error("Error fetching the JSON:", error);
+  });
+      });
+    }
+  }, 500);
   function hasGridArea(element, areaName) {
     return window.getComputedStyle(element).gridArea === areaName;
   }
@@ -43,6 +83,7 @@ function reexecuteLogic() {
 
   parentTemplate.appendChild(btn);
 
+
   asideElements.forEach((asideElement) => {
     // Check if the element with the unique identifier already exists within this aside
     if (!asideElement.querySelector(".unique")) {
@@ -55,6 +96,8 @@ function reexecuteLogic() {
       parentClone.insertBefore(textDiv, parentClone.firstChild);
       asideElement.insertBefore(parentClone, asideElement.firstChild);
     }
+
+
   });
 
   document.querySelectorAll(".custom-button").forEach((elem) => {
@@ -82,28 +125,7 @@ function reexecuteLogic() {
       elem.dataset.clickAttached = "true";
     }
   });
-  fetch("https://free-pik.vercel.app/limit")
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data.current, data.limit);
-    if(data.current > 90) {
-      console.log("Limit exceeded")
-      document.querySelectorAll(".down-button ").forEach(button =>{
-        button.innerHTML = "<span> Download limit exceeded for today. Please try again tomorrow.</span>"
-        button.disabled = true
-        button.style.curson = "not-allowed"
-
-      })
-    }
-    document.querySelectorAll(".limit").forEach((item) => {
-
-      return item.textContent = `${data.current || 0}  / ${ data.limit || 100}  (Today's Limit)`;
-    })
-   
-  })
-  .catch((error) => {
-    console.error("Error fetching the JSON:", error);
-  });
+  
 }
 
 function determineMediaType(url) {
@@ -195,6 +217,9 @@ const newDiv = document.createElement("div");
 reexecuteLogic();
 
 window.navigation.addEventListener("navigate", () => {
+  
+
+  
   console.log("location changed!");
   reexecuteLogic();
 });
@@ -260,3 +285,5 @@ fetch(
   .catch((error) => {
     console.error("Error fetching the JSON:", error);
   });
+
+
