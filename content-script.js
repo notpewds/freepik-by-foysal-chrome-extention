@@ -1,3 +1,4 @@
+let currentVersion = "2.1.1";
 let current = 0;
 let limit = 100;
 function reexecuteLogic() {
@@ -262,7 +263,7 @@ fetch(
   .then((response) => response.json())
   .then((data) => {
     console.log("Version:", data.version);
-    currentVersion = "2.1.0";
+   
     if (currentVersion != data.version) {
       console.log(" Update need");
       const updateBtn = `
