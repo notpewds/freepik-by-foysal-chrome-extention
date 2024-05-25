@@ -250,7 +250,10 @@ a {
   order: 1;
 }
 .detail__aside--left > div {
-  min-height: fit-content !important;
+  min-height: 50px !important;
+}
+.detail__aside--left > button {
+  margin-top: 50px !important;
 }
 .detail__aside--left a {
   border-radius: 8px;
