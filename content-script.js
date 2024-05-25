@@ -1,3 +1,5 @@
+let current = 0;
+let limit = 100;
 function reexecuteLogic() {
   //   document.querySelectorAll(".hide-u").forEach((asideElement) => {
   //     asideElement.remove();
@@ -5,6 +7,8 @@ function reexecuteLogic() {
   function hasGridArea(element, areaName) {
     return window.getComputedStyle(element).gridArea === areaName;
   }
+ 
+  
 
   // Select all aside elements and all elements with the grid-area set to 'aside'
   const asideElements = [
@@ -24,23 +28,20 @@ function reexecuteLogic() {
     "download-go-premium custom-button button button--flat button--sm button--yellow button--yellow--hover button--auto full-width mg-bottom-lv3 pd-lv2 pd-left-lv4 pd-right-lv4 alignc";
   btn.setAttribute("data-resource-id", "9513487");
 
-
-
   const span1 = document.createElement("span");
   span1.className = "block ff--title font-lg bold capitalize";
   span1.textContent = "Download";
 
   const span2 = document.createElement("span");
-  span2.className = "block font-sm regular block mg-top-lv1";
-  span2.textContent = "Freepik By Foysal";
+
+  span2.className = "block font-sm regular block mg-top-lv1  limit";
+  span2.textContent = `${current} / ${limit}  (Today's Limit)`;
 
   btn.appendChild(span1);
   btn.appendChild(span2);
 
 
-
   parentTemplate.appendChild(btn);
-  
 
   asideElements.forEach((asideElement) => {
     // Check if the element with the unique identifier already exists within this aside
@@ -80,6 +81,18 @@ function reexecuteLogic() {
       // Mark this element as having the click handler attached
       elem.dataset.clickAttached = "true";
     }
+  });
+  fetch("https://free-pik.vercel.app/limit")
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data.current, data.limit);
+    document.querySelectorAll(".limit").forEach((item) => {
+      return item.textContent = `${data.current} / ${ data.limit}  (Today's Limit)`;
+    })
+   
+  })
+  .catch((error) => {
+    console.error("Error fetching the JSON:", error);
   });
 }
 
@@ -167,8 +180,7 @@ function downloadVideoFromId(id) {
 
 const downloadIcon = `<div class="loading">Loading&#8230;</div>
 `;
-const newDiv = document.createElement('div');
-
+const newDiv = document.createElement("div");
 
 reexecuteLogic();
 
@@ -181,61 +193,60 @@ const showLoading = () => {
   const body = document.querySelector("body");
   const icon = document.getElementById("__plasmo-loading__");
 
-if(icon){
-  icon.style.opacity = 1;
-  icon.style.bottom = "50%";
-  icon.style.right = "50%";
-  body.style.filter = "blur(1px)";
-  body.style.pointerEvents = "none";
-  
-}else{
-  newDiv.innerHTML = downloadIcon;
-  document.body.appendChild(newDiv);
+  if (icon) {
+    icon.style.opacity = 1;
+    icon.style.bottom = "50%";
+    icon.style.right = "50%";
+    body.style.filter = "blur(1px)";
+    body.style.pointerEvents = "none";
+  } else {
+    newDiv.innerHTML = downloadIcon;
+    document.body.appendChild(newDiv);
 
-console.log(newDiv)
-
-}
+    console.log(newDiv);
+  }
 };
 const hideLoading = () => {
   const body = document.querySelector("body");
   const icon = document.getElementById("__plasmo-loading__");
 
-  if(icon){
+  if (icon) {
     icon.style.opacity = 0;
-  icon.style.bottom = "50px";
-  icon.style.right = "50px";
-  body.style.filter = "none";
-  body.style.pointerEvents = "auto";
-  }else{
+    icon.style.bottom = "50px";
+    icon.style.right = "50px";
+    body.style.filter = "none";
+    body.style.pointerEvents = "auto";
+  } else {
     newDiv.innerHTML = "";
   }
- };
+};
 
+fetch(
+  "https://cdn.jsdelivr.net/gh/notpewds/freepik-by-foysal-chrome-extention@latest/version.json"
+)
+  .then((response) => response.json())
+  .then((data) => {
+    console.log("Version:", data.version);
+    currentVersion = "2.0.1";
+    if (currentVersion != data.version) {
+      console.log(" Update need");
+      const updateBtn = `
+       <button   onclick="window.open('https://github.com/notpewds/freepik-by-foysal-chrome-extention/releases', '_blank')" class="download-go-premium custom-button button button--flat button--sm button--yellow button--yellow--hover button--auto full-width mg-bottom-lv3 pd-lv2 pd-left-lv4 pd-right-lv4 alignc" data-resource-id="9513487" data-click-attached="true"><span class="block ff--title font-lg bold capitalize">Update Available</span>/button>`;
+      const newDiv = document.createElement("div");
+      newDiv.innerHTML = updateBtn;
 
- fetch('https://cdn.jsdelivr.net/gh/notpewds/freepik-by-foysal-chrome-extention@latest/version.json')
- .then(response => response.json())
- .then(data => {
-     console.log('Version:', data.version);
-     currentVersion = "2.0.1"
-     if(currentVersion != data.version){
-       console.log(' Update need');
-       const updateBtn = `
-       <button   onclick="window.open('https://github.com/notpewds/freepik-by-foysal-chrome-extention/releases', '_blank')" class="download-go-premium custom-button button button--flat button--sm button--yellow button--yellow--hover button--auto full-width mg-bottom-lv3 pd-lv2 pd-left-lv4 pd-right-lv4 alignc" data-resource-id="9513487" data-click-attached="true"><span class="block ff--title font-lg bold capitalize">Update Available</span>/button>`
-       const newDiv = document.createElement('div');
-       newDiv.innerHTML = updateBtn;
-     
-       document.querySelector(".unique").appendChild(newDiv);;
-       console.log( document.querySelector(".unique"))
-     }else{
-       console.log(' No Update need');
-       const updateBtn = `
-       <a target="_blank" style="font-size:15px !important;" href="https://join.skype.com/rgqRzMIWrlWI" class="premium bold underline">JOIN OUR SKYPE GROUP.</a>`
-       const newDiv = document.createElement('div');
-       newDiv.innerHTML = updateBtn;
-     
-       document.querySelector(".unique").appendChild(newDiv);;
-     }
- })
- .catch(error => {
-     console.error('Error fetching the JSON:', error);
- });
+      document.querySelector(".unique").appendChild(newDiv);
+      console.log(document.querySelector(".unique"));
+    } else {
+      console.log(" No Update need");
+      const updateBtn = `
+       <a target="_blank" style="font-size:15px !important;" href="https://join.skype.com/rgqRzMIWrlWI" class="premium bold underline">JOIN OUR SKYPE GROUP.</a>`;
+      const newDiv = document.createElement("div");
+      newDiv.innerHTML = updateBtn;
+
+      document.querySelector(".unique").appendChild(newDiv);
+    }
+  })
+  .catch((error) => {
+    console.error("Error fetching the JSON:", error);
+  });
