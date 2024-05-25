@@ -7,34 +7,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
   chrome.tabs.query({ active: true, lastFocusedWindow: true }, (tabs) => {
     const url = tabs[0].url;
-    if (
-      url.includes("premium-photo") ||
-      url.includes("premium-ai-image") ||
-      url.includes("premium-video") ||
-      url.includes("free-video") ||
-   
-      url.includes("free-photo") 
-    ) {
+    if (url.includes("premium-") || url.includes("free-")) {
       // Supported URL
       console.log("Supported URL");
     } else {
       // Not supported URL
       document.getElementById("here2").innerText =
         "This extension only works with premium freepik images and video.";
-      // document.getElementById("btn").style.display = "none";
+      document.getElementById("btn").style.display = "none";
       console.log("Not supported");
     }
-    if (
-
-      url.includes("free-video") ||
-   
-      url.includes("free-photo") 
-    ) {
+    if (url.includes("free-video") || url.includes("free-photo")) {
       // document.getElementById("btn").style.display = "none";
       document.getElementById("here").style.display = "none";
       document.getElementById("here2").innerText =
         "This image is available for free. Only premium images or videos will be accepted, and the option to download free videos and images will be removed soon.  ";
-    } 
+    }
 
     // document.getElementById("here").innerText = url;
 

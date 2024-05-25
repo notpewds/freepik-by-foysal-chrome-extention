@@ -1,0 +1,334 @@
+.custom-span {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+}
+
+.custom-button {
+  background-color: #111144 !important;
+}
+.custom-button span {
+  color: white !important;
+}
+.custom-span .premium {
+  color: #111144 !important;
+}
+a.premium.bold.underline {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  font-size: 20px !important;
+}
+.hide-premium {
+  filter: blur(1px) !important;
+  cursor: not-allowed !important ;
+  pointer-events: NONE !important;
+}
+.hide-premium button {
+  filter: blur(1px) !important;
+  cursor: not-allowed !important ;
+  pointer-events: NONE !important;
+}
+
+/*  */
+
+/*! CSS Used from: https://freepik.cdnpk.net/css/freepik.84750b0f09fe7b297367.css */
+a {
+  background-color: transparent;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+button {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+button {
+  overflow: visible;
+}
+button {
+  text-transform: none;
+}
+button {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  user-select: none;
+  cursor: pointer;
+}
+.button {
+  position: relative;
+  display: inline-block;
+  border: none;
+  border-radius: 3px;
+  padding: 0 20px;
+  text-align: center;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0 30px;
+  min-width: 44px;
+  height: 44px;
+  font-size: 15px;
+  line-height: 44px;
+  transition: 250ms linear;
+  background: #336aea;
+  color: #fff;
+}
+.button:hover {
+  background: #2955bb;
+  background-outline: rgba(41, 85, 187, 0.1);
+  box-shadow-outline: inset 0 0 0 2px #2955bb;
+  color-outline: #2955bb;
+  color: #fff;
+}
+.button::after {
+  display: table;
+  clear: both;
+  content: "";
+}
+.button span {
+  float: left;
+}
+.button--auto {
+  height: auto !important;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 1 !important;
+}
+.button--auto span {
+  float: none !important;
+}
+.button--sm {
+  padding: 0 20px;
+  min-width: 34px;
+  height: 34px;
+  font-size: 13px;
+  line-height: 34px;
+}
+.button--flat {
+  background: #336aea;
+  color: #fff;
+}
+.button--flat:hover,
+.button--flat:focus {
+  background: #2955bb;
+}
+.button--flat:hover,
+.button--flat:focus {
+  color: #fff;
+}
+.button--yellow {
+  background: #feb602;
+  color: #fff;
+}
+.button--yellow:hover,
+.button--yellow:focus {
+  background: #f4980a;
+}
+.button--yellow:hover,
+.button--yellow:focus {
+  color: #fff;
+}
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+.premium {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.premium {
+  align-items: center;
+}
+html .regular {
+  font-weight: 400;
+}
+html .semibold {
+  font-weight: 600;
+}
+html .bold {
+  font-weight: 700;
+}
+html .ff--title {
+  font-family: var(--font-title);
+}
+html .alignc {
+  text-align: center;
+}
+html .font-sm {
+  font-size: 13px;
+}
+html .font-lg {
+  font-size: 17px;
+}
+html .capitalize {
+  text-transform: capitalize;
+}
+html .underline {
+  text-decoration: underline;
+}
+html .full-width {
+  width: 100% !important;
+}
+html .inline {
+  display: inline;
+}
+html .block {
+  display: block;
+}
+html .inline-block {
+  display: inline-block;
+}
+html .mg-top-lv1 {
+  margin-top: 5px;
+}
+html .mg-right-lv1 {
+  margin-right: 5px;
+}
+html .mg-bottom-lv2 {
+  margin-bottom: 10px;
+}
+html .mg-bottom-lv3 {
+  margin-bottom: 20px;
+}
+html .pd-lv2 {
+  padding: 10px;
+}
+html .pd-right-lv4 {
+  padding-right: 30px;
+}
+html .pd-left-lv4 {
+  padding-left: 30px;
+}
+.icon {
+  display: block;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  speak: none;
+}
+.icon::before {
+  font-family: "bobjoll";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+}
+.icon {
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+  line-height: 16px;
+  color: #777;
+  fill: #777;
+}
+a:hover {
+  color: #1752dd;
+}
+a {
+  color: #336aea;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+}
+.detail__aside--left {
+  padding: 10px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  order: 1;
+}
+.detail__aside--left > div {
+  min-height: 130px;
+}
+.detail__aside--left a {
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+aside > * {
+  flex: auto;
+  max-width: initial;
+}
+@media screen and (min-width: 640px) {
+  .detail__aside--left {
+    padding: 0 0 20px;
+    max-width: 320px;
+    order: 1;
+  }
+  .detail__aside--left-premium {
+    max-width: 380px;
+    min-height: auto;
+    padding: 30px 40px !important;
+    margin-bottom: 20px;
+    border: 1px solid #d8d8d8;
+  }
+}
+@media screen and (min-width: 1240px) {
+  .detail__aside--left {
+    padding-bottom: 0;
+  }
+  .detail__aside--left-premium {
+    margin-bottom: 20px;
+  }
+}
+.button--yellow,
+.button--yellow:hover {
+  color: #121212 !important;
+}
+.button:hover {
+  text-decoration: none !important;
+}
+.icon--premium:before {
+  display: block;
+  width: 16px;
+  height: 16px;
+  background: url(https://freepik.cdnpk.net/assets/0cbd3178f5574b9d6c429b55cdc0be34.svg)
+    center center no-repeat;
+  background-size: 16px 16px;
+  content: "";
+}
+.modal.active * {
+  pointer-events: all;
+}
+.premium {
+  position: relative;
+  padding: 0;
+  font-weight: 400;
+  text-transform: inherit;
+}
+.premium {
+  color: #f4980a !important;
+}
+a.premium:hover {
+  color: #d78609 !important;
+}
+a {
+  font-weight: 600;
+}
+.detail__aside--left {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+@media screen and (min-width: 641px) and (max-width: 1095px) {
+  aside > * {
+    flex: 1;
+    padding: 0 20px;
+    max-width: 360px;
+  }
+  .detail__aside--left {
+    padding-bottom: 10px;
+  }
+}
