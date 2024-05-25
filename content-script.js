@@ -25,7 +25,7 @@ function reexecuteLogic() {
 
   const btn = document.createElement("button");
   btn.className =
-    "download-go-premium custom-button button button--flat button--sm button--yellow button--yellow--hover button--auto full-width mg-bottom-lv3 pd-lv2 pd-left-lv4 pd-right-lv4 alignc";
+    "download-go-premium down-button  custom-button button button--flat button--sm button--yellow button--yellow--hover button--auto full-width mg-bottom-lv3 pd-lv2 pd-left-lv4 pd-right-lv4 alignc";
   btn.setAttribute("data-resource-id", "9513487");
 
   const span1 = document.createElement("span");
@@ -86,8 +86,18 @@ function reexecuteLogic() {
   .then((response) => response.json())
   .then((data) => {
     console.log(data.current, data.limit);
+    if(data.limit > 90) {
+      console.log("Limit exceeded")
+      document.querySelectorAll(".down-button ").forEach(button =>{
+        button.innerHTML = "<span> Download limit exceeded for today. Please try again tomorrow.</span>"
+        button.disabled = true
+        button.style.curson = "not-allowed"
+
+      })
+    }
     document.querySelectorAll(".limit").forEach((item) => {
-      return item.textContent = `${data.current} / ${ data.limit}  (Today's Limit)`;
+
+      return item.textContent = `${data.current || 0}  / ${ data.limit || 100}  (Today's Limit)`;
     })
    
   })
