@@ -48,7 +48,7 @@ function reexecuteLogic() {
       const textDiv = document.createElement("div");
       textDiv.innerHTML = `<span class="head first font-lg block semibold mg-bottom-lv2 inline custom-span">
               <span class=" inline "><i class="icon icon--premium inline-block mg-right-lv1"></i> Freepik Downloader By </span>
-              <a href="https://freepik-by-foysal.vercel.app" class="premium bold underline">Foysal</a></span>`;
+              <a href="https://github.com/ahfoysal" class="premium bold underline">Foysal</a></span>`;
 
       const parentClone = parentTemplate.cloneNode(true);
       parentClone.insertBefore(textDiv, parentClone.firstChild);
