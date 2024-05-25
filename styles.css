@@ -32,7 +32,10 @@ a.premium.bold.underline {
   cursor: not-allowed !important ;
   pointer-events: NONE !important;
 }
-
+body.new-detail .detail.detail--modal aside.aside--in-flex {
+  display: flex !important;
+  flex-direction: column !important;
+}
 /*  */
 
 /*! CSS Used from: https://freepik.cdnpk.net/css/freepik.84750b0f09fe7b297367.css */
