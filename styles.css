@@ -4,7 +4,9 @@
   align-items: center !important;
   flex-wrap: wrap !important;
 }
-
+figure .unique {
+  display: none !important;
+}
 .custom-button {
   background-color: #111144 !important;
 }
