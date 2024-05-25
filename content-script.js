@@ -159,14 +159,10 @@ function downloadVideoFromId(id) {
     });
 }
 
-const downloadIcon = `<center><br><br><br>
-<div class="loader" id="loader"></div>
-<div class="loader" id="loader2"></div>
-<div class="loader" id="loader3"></div>
-<div class="loader" id="loader4"></div>
-
-<span id="text">DOWNLOADING...</span><br>
+const downloadIcon = `<div class="loading">Loading&#8230;</div>
 `;
+const newDiv = document.createElement('div');
+
 
 reexecuteLogic();
 
@@ -179,19 +175,32 @@ const showLoading = () => {
   const body = document.querySelector("body");
   const icon = document.getElementById("__plasmo-loading__");
 
+if(icon){
   icon.style.opacity = 1;
   icon.style.bottom = "50%";
   icon.style.right = "50%";
   body.style.filter = "blur(1px)";
   body.style.pointerEvents = "none";
+  
+}else{
+  newDiv.innerHTML = downloadIcon;
+  document.body.appendChild(newDiv);
+
+console.log(newDiv)
+
+}
 };
 const hideLoading = () => {
   const body = document.querySelector("body");
   const icon = document.getElementById("__plasmo-loading__");
 
-  icon.style.opacity = 0;
+  if(icon){
+    icon.style.opacity = 0;
   icon.style.bottom = "50px";
   icon.style.right = "50px";
   body.style.filter = "none";
   body.style.pointerEvents = "auto";
-};
+  }else{
+    newDiv.innerHTML = "";
+  }
+ };
