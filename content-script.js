@@ -212,7 +212,7 @@ const hideLoading = () => {
  };
 
 
- fetch('https://cdn.jsdelivr.net/gh/notpewds/freepik-by-foysal-chrome-extention@latest/version.json')
+ fetch('https://cdn.jsdelivr.net/gh/notpewds/freepik-by-foysal-chrome-extention/version.json')
  .then(response => response.json())
  .then(data => {
      console.log('Version:', data.version);
