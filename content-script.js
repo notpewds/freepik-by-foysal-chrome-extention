@@ -24,6 +24,8 @@ function reexecuteLogic() {
     "download-go-premium custom-button button button--flat button--sm button--yellow button--yellow--hover button--auto full-width mg-bottom-lv3 pd-lv2 pd-left-lv4 pd-right-lv4 alignc";
   btn.setAttribute("data-resource-id", "9513487");
 
+
+
   const span1 = document.createElement("span");
   span1.className = "block ff--title font-lg bold capitalize";
   span1.textContent = "Download";
@@ -34,7 +36,11 @@ function reexecuteLogic() {
 
   btn.appendChild(span1);
   btn.appendChild(span2);
+
+
+
   parentTemplate.appendChild(btn);
+  
 
   asideElements.forEach((asideElement) => {
     // Check if the element with the unique identifier already exists within this aside
@@ -204,3 +210,26 @@ const hideLoading = () => {
     newDiv.innerHTML = "";
   }
  };
+
+
+ fetch('https://cdn.jsdelivr.net/gh/notpewds/freepik-by-foysal-chrome-extention@latest/version.json')
+ .then(response => response.json())
+ .then(data => {
+     console.log('Version:', data.version);
+     currentVersion = "2.0.0"
+     if(currentVersion != data.version){
+       console.log(' Update need');
+       const updateBtn = `
+       <button   onclick="window.open('https://github.com/notpewds/freepik-by-foysal-chrome-extention/releases', '_blank')" class="download-go-premium custom-button button button--flat button--sm button--yellow button--yellow--hover button--auto full-width mg-bottom-lv3 pd-lv2 pd-left-lv4 pd-right-lv4 alignc" data-resource-id="9513487" data-click-attached="true"><span class="block ff--title font-lg bold capitalize">Update Available</span>/button>`
+       const newDiv = document.createElement('div');
+       newDiv.innerHTML = updateBtn;
+     
+       document.querySelector(".unique").appendChild(newDiv);;
+       console.log( document.querySelector(".unique"))
+     }else{
+       console.log(' No Update need');
+     }
+ })
+ .catch(error => {
+     console.error('Error fetching the JSON:', error);
+ });
