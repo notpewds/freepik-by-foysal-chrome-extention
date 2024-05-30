@@ -23,7 +23,7 @@ function reexecuteLogic() {
   .then((response) => response.json())
   .then((data) => {
     console.log(data.current, data.limit);
-    if(data.current > 90) {
+    if(data.current > 180) {
       console.log("Limit exceeded")
       document.querySelectorAll(".down-button ").forEach(button =>{
         button.innerHTML = "<span> Download limit exceeded for today. Please try again tomorrow.</span>"
