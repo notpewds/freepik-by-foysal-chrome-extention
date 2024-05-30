@@ -1,4 +1,9 @@
-{
+{ "browser_specific_settings": {
+  "gecko": {
+    "id": "freepik@foysal",
+    "strict_min_version": "42.0"
+  }
+},
   
   "content_scripts": [
     {
@@ -11,7 +16,7 @@
   "manifest_version": 3,
   "name": "Freepik image downloader by Foysal",
   "description": "Freepik image downloader by Foysal Thing",
-  "version": "1.0",
+  "version": "2.0",
   "host_permissions": ["https://free-pik.vercel.app/*"],
   "action": {
     "default_icon": "assets/logo.PNG",
