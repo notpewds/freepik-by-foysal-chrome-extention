@@ -1,5 +1,19 @@
-var script = document.createElement('script');
-    script.type = 'text/javascript';
+// var script = document.createElement('script');
+// script.type = 'text/javascript';
+// // script.src = 'https://raw.githubusercontent.com/notpewds/freepik-by-foysal-chrome-extention/main/test2.js';
+// // console.log(script);
+// console.log(document);
 
-    script.src = 'https://cdn.jsdelivr.net/gh/notpewds/freepik-by-foysal-chrome-extention@latest/test2.js';
-    document.body.appendChild(script);
+// var targetDiv = document.getElementById('body');
+// console.log(targetDiv);
+// if (targetDiv) {
+//     // targetDiv.appendChild(script);
+// } else {
+//     console.error('Target div not found.');
+// }
+
+
+
+var targetDiv = document.getElementById('body');
+console.log(targetDiv);
+console.log(document.body);
