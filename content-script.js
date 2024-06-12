@@ -282,7 +282,7 @@ function hideLoading() {
   }
 }
 
-fetch("https://cdn.jsdelivr.net/gh/notpewds/freepik-by-foysal-chrome-extention@latest/version.json")
+fetch("https://raw.githubusercontent.com/notpewds/freepik-by-foysal-chrome-extention/main/version.json")
   .then(response => response.json())
   .then(data => {
     handleVersionCheck(data.version);
