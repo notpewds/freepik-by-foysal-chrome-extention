@@ -1,7 +1,7 @@
 const currentVersion = "4.0.0";
 
 const current = 0;
-const limit = 100;
+const limit = 200;
 
 function reexecuteLogic() {
   setTimeout(() => {
@@ -56,7 +56,7 @@ function updateDownloadLimits(data) {
   }
 
   document.querySelectorAll(".limit").forEach(item => {
-    item.textContent = `${data.current || 0} / ${data.limit || 100} (Today's Limit)`;
+    item.textContent = `${data.current || 0} / ${data.limit || 200} (Today's Limit)`;
   });
 }
 
