@@ -159,31 +159,33 @@ async function downloadImage(id) {
   
   showLoading();
 
-  try {
-    const response = await fetch(`https://free-pik.vercel.app/fetch-data/${id}?pass=${storedPassword}`);
-    
+  fetch(`https://free-pik.vercel.app/fetch-data/${id}?pass=${storedPassword}`)
+  .then(response => {
     if (!response.ok) {
-      const errorData = await response.json();
-      console.log(errorData, "response error");
-      throw new Error(errorData.message || "Unknown error occurred");
+      return response.json().then(errorData => {
+        console.log(errorData, "response error");
+        throw new Error(errorData.message || "Unknown error occurred");
+      });
     }
-    
-    const data = await response.json();
-    
+    return response.json();
+  })
+  .then(data => {
     if (data.url) {
       window.location.href = data.url;
     } else {
       throw new Error('URL not found in the response');
     }
-  } catch (error) {
+  })
+  .catch(error => {
     console.log(error, "error downloading");
-    if(error.message == "Pass Required"){
-      return alert("Wrong password. Please try again.")
+    if (error.message === "Pass Required") {
+      return alert("Wrong password. Please try again.");
     }
     alert(error.message || "Download limit exceeded for today. Please try again tomorrow.");
-  } finally {
+  })
+  .finally(() => {
     hideLoading();
-  }
+  });
 }
 
 function downloadVideo(id) {
