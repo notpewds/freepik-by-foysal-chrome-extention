@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function downloadImage(id) {
-    fetch(`https://free-pik.vercel.app/get-data/${id}`)
+    fetch(`https://freepik.softvencefsd.xyz/get-data/${id}`)
       .then((response) => response.json())
       .then((data) => {
         // imagePreview.src = data.preview.url;
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
         titleElement.textContent = data.name;
         console.log(data.preview);
 
-        return fetch(`https://free-pik.vercel.app/fetch-data/${id}`);
+        return fetch(`https://freepik.softvencefsd.xyz/fetch-data/${id}`);
       })
       .then((response) => response.json())
       .then((data) => {
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function downloadVideo(id) {
-    fetch(`https://free-pik.vercel.app/get-video/${id}`)
+    fetch(`https://freepik.softvencefsd.xyz/get-video/${id}`)
       .then((response) => response.json())
       .then((data) => {
         // videoPreview.src = data.previews[0];
@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function downloadVideoFromId(id) {
-    fetch(`https://free-pik.vercel.app/fetch-video/${id}`)
+    fetch(`https://freepik.softvencefsd.xyz/fetch-video/${id}`)
       .then((response) => response.json())
       .then((data) => {
         if (data.url) {
