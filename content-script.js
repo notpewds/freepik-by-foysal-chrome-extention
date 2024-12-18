@@ -2,7 +2,7 @@ const currentVersion = "4.0.0";
 
 const current = 0;
 const limit = 200;
-
+let videoID = null;
 function reexecuteLogic() {
   setTimeout(() => {
     handleButtonStates();
@@ -122,6 +122,8 @@ function createTextDiv() {
   return textDiv;
 }
 
+
+
 function setupCustomButtonHandlers() {
   document.querySelectorAll(".custom-button").forEach(elem => {
     const clickHandler = () => {
@@ -131,6 +133,8 @@ function setupCustomButtonHandlers() {
 
       if (mediaType === "video" && id) {
         downloadVideo(id);
+        videoID = id;
+        
       } else if (id) {
         downloadImage(id);
       }
@@ -190,6 +194,7 @@ async function downloadImage(id) {
 
 function downloadVideo(id) {
   const storedPassword = localStorage.getItem("pass");
+
   fetch(`https://freepik.softvencefsd.xyz/get-video/${id}?pass=${storedPassword}`)
     .then(response => response.json())
     .then(data => {
@@ -232,7 +237,8 @@ function renderVideoOptions(options) {
 function downloadVideoFromId(id) {
   showLoading();
   const storedPassword = localStorage.getItem("pass");
-  fetch(`https://freepik.softvencefsd.xyz/fetch-video/${id}?pass=${storedPassword}`)
+  console.log(videoID)
+  fetch(`https://freepik.softvencefsd.xyz/fetch-video/${id}?pass=${storedPassword}&id=${videoID}`)
     .then(response => response.json())
     .then(data => {
       if (data.url) {

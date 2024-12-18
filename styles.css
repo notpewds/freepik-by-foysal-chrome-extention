@@ -467,3 +467,13 @@ input.custom-input {
   border: 1px solid #f4980a !important;
   padding: 10px !important;
 }
+.\$max-w-\[1400px\] > div{
+  grid-template-columns: 100px 1fr 1fr 320px !important;
+  
+
+}
+.\$max-w-\[1400px\].\$pt-0.sm\:\$pt-20.\$pb-70> div{
+  grid-template-columns: 1fr 1fr 320px !important;
+
+
+}
