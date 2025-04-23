@@ -39,7 +39,7 @@ function enableDownloadButtons() {
     button.style.cursor = "pointer";
 
     const storedPassword = localStorage.getItem("pass");
-    fetch(`https://freepik.softvencefsd.xyz/limit?pass=${storedPassword}`)
+    fetch(`https://freepik.softvenceomega.com/free-pic/limit?pass=${storedPassword}`)
       .then(response => response.json())
       .then(data => {
         updateDownloadLimits(data);
@@ -163,7 +163,7 @@ async function downloadImage(id) {
   
   showLoading();
 
-  fetch(`https://freepik.softvencefsd.xyz/fetch-data/${id}?pass=${storedPassword}`)
+  fetch(`https://freepik.softvenceomega.com/free-pic/fetch-data/${id}?pass=${storedPassword}`)
   .then(response => {
     if (!response.ok) {
       return response.json().then(errorData => {
@@ -195,7 +195,7 @@ async function downloadImage(id) {
 function downloadVideo(id) {
   const storedPassword = localStorage.getItem("pass");
 
-  fetch(`https://freepik.softvencefsd.xyz/get-video/${id}?pass=${storedPassword}`)
+  fetch(`https://freepik.softvenceomega.com/free-pic/get-video/${id}?pass=${storedPassword}`)
     .then(response => response.json())
     .then(data => {
       renderVideoOptions(data.options);
@@ -238,7 +238,7 @@ function downloadVideoFromId(id) {
   showLoading();
   const storedPassword = localStorage.getItem("pass");
   console.log(videoID)
-  fetch(`https://freepik.softvencefsd.xyz/fetch-video/${id}?pass=${storedPassword}&id=${videoID}`)
+  fetch(`https://freepik.softvenceomega.com/free-pic/fetch-video/${id}?pass=${storedPassword}&id=${videoID}`)
     .then(response => response.json())
     .then(data => {
       if (data.url) {

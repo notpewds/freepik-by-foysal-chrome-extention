@@ -17,13 +17,13 @@
   "name": "Freepik image downloader by Foysal",
   "description": "Freepik image downloader by Foysal Thing",
   "version": "2.0",
-  "host_permissions": ["https://freepik.softvencefsd.xyz/*"],
+  "host_permissions": ["https://freepik.softvenceomega.com/*"],
   "action": {
     "default_icon": "assets/logo.PNG",
     "default_popup": "popup.html"
   },
   "content_security_policy": {
-    "extension_pages": "default-src 'self'; img-src https://*; connect-src 'self' https://freepik.softvencefsd.xyz"
+    "extension_pages": "default-src 'self'; img-src https://*; connect-src 'self' https://freepik.softvenceomega.com"
   },
   "omnibox": {
     "keyword": "demo"
